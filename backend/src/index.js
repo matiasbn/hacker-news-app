@@ -7,7 +7,7 @@ import { debugStart } from './config/debug'
 import fetchAndStore from './helpers/fetch-and-store'
 
 
-(async () => {
+const start = async () => {
   try {
     await new MongoClient().getInstance(app)
     // Execute once the service is running
@@ -20,4 +20,6 @@ import fetchAndStore from './helpers/fetch-and-store'
   } catch (error) {
     Logger.error(error)
   }
-})()
+}
+
+start()

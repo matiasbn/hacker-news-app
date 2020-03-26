@@ -27,7 +27,7 @@ const del = async (request, response) => {
     const { storyId } = request.body
     debugControllers('storyId', storyId)
     const deleted = { story_id: storyId }
-    await Deleted.update(deleted, deleted, { upsert: false })
+    await Deleted.updateOne(deleted, deleted, { upsert: true })
     response.success({ deleted: storyId })
   } catch (error) {
     Logger.error(error)
