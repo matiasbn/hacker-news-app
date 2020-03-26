@@ -1,0 +1,10 @@
+{
+    "name": "Hacker news API",
+    "version": "1.0.0",
+    "description": "Documentation for Hacker news API Rest",
+    "title": "Hacker news api",
+    "url": "http://localhost:3001",
+    "template": {
+        "forceLanguage": "en"
+    }
+}
