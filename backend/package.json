@@ -16,7 +16,7 @@
     "test:coverage": "jest --collectCoverage",
     "test:verbose": "jest --watch --verbose",
     "test:verbose:debug": "DEBUG='HackernewsTest::test' npm run test:verbose",
-    "test:verbose:debug:specific": "DEBUG='HackernewsTest::test' npm run test:verbose route.auth.test.js",
+    "test:verbose:debug:specific": "DEBUG='HackernewsTest::test' npm run test:verbose unit.test.js",
     "start": "nodemon --watch .env --watch src --exec babel-node src --source-maps",
     "debug": "DEBUG='Hackernews::*' npm run start",
     "lint": "eslint src/**/*.js --fix && echo Lint passed ❤",
@@ -92,7 +92,11 @@
   "jest": {
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "test/",
+      "src/config",
+      "src/models",
+      "src/common"
     ],
     "setupFiles": [
       "./test/config/env.setup.js"
