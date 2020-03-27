@@ -9,8 +9,17 @@ const fetch = async (request, response) => {
     let deleted = await Deleted.find({}, { _id: 0, story_id: 1 }).lean()
     deleted = deleted.map((del) => del.story_id)
     debugControllers('deleted: \n', deleted)
+    // fetch specific data
+    const projection = {
+      _id: 0,
+      created_at_i: 1,
+      story_id: 1,
+      story_title: 1,
+      story_url: 1,
+      title: 1,
+    }
     // Fetch not deleted stories
-    const stories = await Stories.find({ story_id: { $nin: deleted } })
+    const stories = await Stories.find({ story_id: { $nin: deleted } }, projection)
     // Sort by created_at_i
     stories.sort((a, b) => b.created_at_i - a.created_at_i)
     debugControllers('stories: \n', stories)
