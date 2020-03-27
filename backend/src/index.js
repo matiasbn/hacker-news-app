@@ -12,7 +12,7 @@ const start = async () => {
     await new MongoClient().getInstance(app)
     // Execute once the service is running
     await fetchAndStore()
-    cron.schedule('* */1 * * *', async () => {
+    cron.schedule('* * */1 * *', async () => {
       debugStart('storing every 1 hour')
       // Execute every 1 hour
       await fetchAndStore()
