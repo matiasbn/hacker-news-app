@@ -24,5 +24,7 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": 0,
     "import/extensions": ["error", "never"],
+    "max-len": 0,
+    "camelcase": 0
   },
 };
