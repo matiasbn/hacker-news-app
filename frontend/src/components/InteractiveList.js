@@ -8,23 +8,36 @@ import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Divider from '@material-ui/core/Divider';
 import axios from 'axios';
 import day from 'dayjs';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    maxWidth: 752,
+    // maxWidth: 752,
     width: '100%',
-  },
-  demo: {
-    backgroundColor: theme.palette.background.paper,
   },
   title: {
     margin: theme.spacing(4, 0, 2),
+    color: '#333',
+  },
+  row: {
+    backgroundColor: '#fff',
+    border: '1px',
+    borderColor: 'red',
+  },
+  primary: {
+    display: 'inline-block',
+  },
+  secondary: {
+    textAlign: 'left',
+    display: 'inline-block',
   },
   date: {
-    alignContent: 'right',
+    display: 'inline-block',
+    width: '50%',
+    textAlign: 'right',
   },
 }));
 
@@ -71,11 +84,12 @@ export default function InteractiveList() {
         <Typography variant="h3" className={classes.title}>
           {'We <3 hacker news'}
         </Typography>
-        <div className={classes.demo}>
-          <List dense={dense} component="nav">
-            {stories.map((story, index) => (
+
+        <List dense={dense} component="nav" className={classes.row}>
+          {stories.map((story, index) => (
+            <div key={index * 10}>
+              <Divider key={`${index}`} />
               <ListItem
-                button
                 alignItems="flex-start"
                 key={story.story_id}
                 selected={selectedIndex === index}
@@ -83,25 +97,36 @@ export default function InteractiveList() {
                 onClick={() => window.open(story.story_url, '_blank')}
               >
                 <ListItemText
+                  edge="start"
                   primary={story.story_title}
-                  secondary={story.author}
+                  className={classes.primary}
                 />
                 <ListItemText
+                  edge="start"
+                  secondary={`- ${story.author} -`}
+                  className={classes.secondary}
+                />
+                <ListItemText
+                  edge="end"
                   className={classes.date}
                   primary={formatDate(story.created_at_i)}
                 />
                 <ListItemSecondaryAction>
                   {selectedIndex === index
                    && (
-                   <IconButton edge="end" aria-label="delete" onClick={() => deleteElement(setStories, story, setSelectedIndex)}>
+                   <IconButton
+                     edge="end"
+                     aria-label="delete"
+                     onClick={() => deleteElement(setStories, story, setSelectedIndex)}
+                   >
                      <DeleteIcon />
                    </IconButton>
                    )}
                 </ListItemSecondaryAction>
               </ListItem>
-            ))}
-          </List>
-        </div>
+            </div>
+          ))}
+        </List>
       </Grid>
     </div>
   );
