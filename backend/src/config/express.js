@@ -14,7 +14,7 @@ import routes from '../routes'
 const app = express()
 app.set('trust proxy', true)
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: '*',
 }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
