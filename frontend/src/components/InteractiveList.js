@@ -80,6 +80,7 @@ export default function InteractiveList() {
                 key={story.story_id}
                 selected={selectedIndex === index}
                 onMouseEnter={() => setSelectedIndex(index)}
+                onClick={() => window.open(story.story_url, '_blank')}
               >
                 <ListItemText
                   primary={story.story_title}
