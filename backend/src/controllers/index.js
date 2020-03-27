@@ -12,6 +12,7 @@ const fetch = async (request, response) => {
     // fetch specific data
     const projection = {
       _id: 0,
+      author: 1,
       created_at_i: 1,
       story_id: 1,
       story_title: 1,

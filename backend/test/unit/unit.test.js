@@ -12,6 +12,7 @@ import fetchAndStore from '../../src/helpers/fetch-and-store'
 import Stories from '../../src/models/stories'
 import Deleted from '../../src/models/deleted'
 import Controller from '../../src/controllers'
+import { debugTest } from '../../src/config/debug'
 
 (async () => {
   const testOptions = getTestConfig(path.basename(__filename))
@@ -38,6 +39,8 @@ describe('hacker-news-app unit testing', () => {
       storedPromises.push(Stories.findOne({ story_id }))
     })
     const stored = await Promise.all(storedPromises)
+    debugTest(storedData[1])
+    debugTest(stored[1])
     // If there is some missing, missingone would be true
     const missingOne = stored.some((hit) => hit === null)
     expect(!missingOne).toBe(true)

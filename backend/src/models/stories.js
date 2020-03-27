@@ -6,6 +6,9 @@ const StorySchema = new Schema({
     type: Number,
     required: true,
   },
+  author: {
+    type: String,
+  },
   title: {
     type: String,
   },

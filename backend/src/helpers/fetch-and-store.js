@@ -9,6 +9,7 @@ const fetchAndStore = async () => {
     const response = await axios({ method: 'get', url: 'http://hn.algolia.com/api/v1/search_by_date?query=nodejs' })
     const { data } = response
     const formatted = data.hits.map((hit) => ({
+      author: hit.author,
       created_at_i: hit.created_at_i,
       title: hit.title,
       story_id: hit.story_id,
@@ -16,8 +17,8 @@ const fetchAndStore = async () => {
       story_url: hit.story_url,
       url: hit.url,
     }))
-    // Just hits with url or story_url
-      .filter((hit) => hit.url || hit.story_url)
+    // Just hits with url, story_url and story_id
+      .filter((hit) => (hit.url || hit.story_url) && hit.story_id)
     // Remove repeated elements, checking per hit if it is the first element with the story_id
       .filter((hit, index, array) => array.findIndex((element) => (element.story_id === hit.story_id)) === index)
     // Insert many avoiding to store multiple times the same story_id using ordered:true
