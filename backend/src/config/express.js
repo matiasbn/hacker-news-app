@@ -5,6 +5,7 @@ import notFoundMiddleware from '@feathersjs/errors/not-found'
 import bodyParser from 'body-parser'
 import compression from 'compression'
 import helmet from 'helmet'
+import cors from 'cors'
 import methodOverride from 'method-override'
 import morgan from 'morgan'
 import routes from '../routes'
@@ -12,7 +13,9 @@ import routes from '../routes'
 
 const app = express()
 app.set('trust proxy', true)
-
+app.use(cors({
+  origin: 'http://localhost:3000',
+}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(compression({ level: 8 }))
