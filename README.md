@@ -19,13 +19,17 @@ The Express app is listening at port 3001 .
 
 The MongoDB is running and listening at port 27018 without RBAC.
 
-## State route
-The [/state](http://localhost:3001/recover) route returns the state of the app, including the API uptime.
+## Routes
 
-## Recover route
+The Express app have some useful routes. By clicking the link on everyone of this README you are going to call them.
+
+### State route
+The [/state](http://localhost:3001/state) route returns the state of the app, including the API uptime.
+
+### Recover route
 
 The [/recover](http://localhost:3001/recover) route deletes all documents stored on the 'deleteds' collection. Is useful to 'refresh' the state of the app and have all the posts available again.
 
-## Populate route
+### Populate route
 
 The [/populate](http://localhost:3001/populate) route populates the database with the last information from Hacker news.
