@@ -1,4 +1,4 @@
 NODE_ENV=development
-MONGO_URI=mongodb://localhost:27017/
+MONGO_URI=mongodb://0.0.0.0:27017/
 APP_PORT=3001
 DATABASE_NAME=hacker-news
