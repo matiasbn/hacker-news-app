@@ -12,12 +12,12 @@ services:
   client:
     build: ./frontend
     ports:
-      - "3002:80"
+      - "3000:80"
     container_name: rfront
 
   db:
     image: mongo
     ports:
-      - "27017:27017"
+      - "27018:27017"
     container_name: rmongo
     command: --quiet
