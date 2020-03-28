@@ -3,6 +3,7 @@
 import Logger from '../config/logger'
 import Deleted from '../models/deleted'
 import Stories from '../models/stories'
+import fetchAndStore from '../helpers/fetch-and-store'
 
 const fetch = async (request, response) => {
   try {
@@ -51,8 +52,19 @@ const recover = async (request, response) => {
   }
 }
 
+const populate = async (request, response) => {
+  try {
+    const fetched = await fetchAndStore()
+    response.success(fetched)
+  } catch (error) {
+    Logger.error(error)
+    response.error(error, 500)
+  }
+}
+
 export default {
   fetch,
   del,
   recover,
+  populate,
 }

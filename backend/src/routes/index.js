@@ -27,4 +27,8 @@ router
   .get('/recover',
     Controller.recover)
 
+router
+  .get('/populate',
+    Controller.populate)
+
 export default router
