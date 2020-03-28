@@ -41,7 +41,18 @@ const del = async (request, response) => {
   }
 }
 
+const recover = async (request, response) => {
+  try {
+    await Deleted.deleteMany({})
+    response.success()
+  } catch (error) {
+    Logger.error(error)
+    response.error(error, 500)
+  }
+}
+
 export default {
   fetch,
   del,
+  recover,
 }

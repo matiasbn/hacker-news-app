@@ -23,4 +23,8 @@ router
     validator,
     Controller.del)
 
+router
+  .get('/recover',
+    Controller.recover)
+
 export default router
