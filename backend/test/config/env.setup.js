@@ -1,7 +1,7 @@
 import appRootPath from 'app-root-path'
 import dotenv from 'dotenv'
 import Joi from '@hapi/joi'
-import envSchema from '../../src/common/environment-schema'
+import envSchema from '../../src/config/env'
 
 dotenv.config({
   path: `${appRootPath.path}/test/.env`,

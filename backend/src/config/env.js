@@ -27,3 +27,5 @@ const { error } = environmentVarsSchema.validate(process.env)
 if (error) {
   throw new Error(`Config validation error: ${error.message}`)
 }
+
+export default environmentSchema
