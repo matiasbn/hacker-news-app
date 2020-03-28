@@ -33,3 +33,15 @@ The [/recover](http://localhost:3001/recover) route deletes all documents stored
 ### Populate route
 
 The [/populate](http://localhost:3001/populate) route populates the database with the last information from Hacker news.
+
+## Test
+
+The Express app have unit tests for the controllers and helpers. Go to /backend and run:
+````
+yarn test
+````
+
+Or if you use npm
+````
+npm run test
+````
