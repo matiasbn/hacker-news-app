@@ -11,7 +11,7 @@ router
   .use(responder({ includeCode: 'status', includeSuccess: 'success' }))
   .use(trimRequest.all)
 
-router.get('/', (request, response) => response.success({ message: 'Hacker news API is alive!', uptime: process.uptime() }))
+router.get('/state', (request, response) => response.success({ message: 'Hacker news API is alive!', uptime: process.uptime() }))
 
 router
   .get('/fetch', Controller.fetch)
