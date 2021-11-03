@@ -55,7 +55,7 @@
     "supertest": "^4.0.2",
     "supports-color": "^7.1.0",
     "trim-request": "^1.0.6",
-    "validator": "^12.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
